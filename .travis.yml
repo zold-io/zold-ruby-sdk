@@ -1,0 +1,20 @@
+language: ruby
+rvm:
+  - 2.3.1
+  - 2.3.3
+  - 2.4.5
+cache: bundler
+branches:
+  only:
+    - master
+install:
+  - travis_retry bundle update
+  - gem install pdd
+  - sudo apt-get install cppcheck
+script:
+  - pdd -f /dev/null
+  - cppcheck --enable=all --quiet --suppress=unusedFunction .
+  - export RUBYOPT="-W0"
+  - rake --quiet
+after_success:
+  - "bash <(curl -s https://codecov.io/bash)"
