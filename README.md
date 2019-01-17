@@ -21,6 +21,8 @@ The license is [MIT](https://github.com/zold-io/zold-ruby-sdk/blob/master/LICENS
 This is a simple Ruby SDK for making payments, checking balances, and finding transactions in
 Zold wallets via [WTS](https://wts.zold.io) system.
 
+There are other languages too: [Java SDK](https://github.com/amihaiemil/zold-java-client).
+
 First, you install it:
 
 ```
