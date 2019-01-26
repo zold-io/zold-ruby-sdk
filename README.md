@@ -11,6 +11,7 @@
 [![PDD status](http://www.0pdd.com/svg?name=zold-io/zold-ruby-sdk)](http://www.0pdd.com/p?name=zold-io/zold-ruby-sdk)
 [![Gem Version](https://badge.fury.io/rb/zold-ruby-sdk.svg)](http://badge.fury.io/rb/zold-ruby-sdk)
 [![Test Coverage](https://img.shields.io/codecov/c/github/zold-io/zold-ruby-sdk.svg)](https://codecov.io/github/zold-io/zold-ruby-sdk?branch=master)
+[![Yard Docs](http://img.shields.io/badge/yard-docs-blue.svg)](http://rubydoc.info/github/zold-io/zold-ruby-sdk/master/frames)
 
 Here is the [White Paper](https://papers.zold.io/wp.pdf).
 
