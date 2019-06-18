@@ -12,7 +12,9 @@
 [![Gem Version](https://badge.fury.io/rb/zold-ruby-sdk.svg)](http://badge.fury.io/rb/zold-ruby-sdk)
 [![Test Coverage](https://img.shields.io/codecov/c/github/zold-io/zold-ruby-sdk.svg)](https://codecov.io/github/zold-io/zold-ruby-sdk?branch=master)
 [![Yard Docs](http://img.shields.io/badge/yard-docs-blue.svg)](http://rubydoc.info/github/zold-io/zold-ruby-sdk/master/frames)
+
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](https://github.com/yegor256/takes/blob/master/LICENSE.txt)
+[![Hits-of-Code](https://hitsofcode.com/github/zold-io/zold-score)](https://hitsofcode.com/view/github/zold-io/zold-ruby-sdk)
 
 Here is the [White Paper](https://papers.zold.io/wp.pdf).
 
