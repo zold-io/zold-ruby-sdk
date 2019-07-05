@@ -29,10 +29,9 @@ require_relative '../../lib/zold/wts'
 # Copyright:: Copyright (c) 2018-2019 Yegor Bugayenko
 # License:: MIT
 class TestWTS < Minitest::Test
-  KEY = '8HNxjYuEFp0....LYOWxsEaC3rQ=='
+  KEY = '0000000000000000-b416493aefae4ca487c4739050aaec15'
 
   def test_pulls
-    skip if KEY.length < 50
     wts = Zold::WTS.new(KEY, log: Loog::VERBOSE)
     job = wts.pull
     wts.wait(job)
@@ -40,22 +39,26 @@ class TestWTS < Minitest::Test
   end
 
   def test_finds_transactions
-    skip if KEY.length < 50
     wts = Zold::WTS.new(KEY, log: Loog::VERBOSE)
     job = wts.pull
     wts.wait(job)
-    assert_equal(1, wts.find(details: /^for hosting$/).count)
+    assert_equal(0, wts.find(details: /^for hosting$/).count)
   end
 
   def test_retrieves_wallet_id
-    skip if KEY.length < 50
     wts = Zold::WTS.new(KEY, log: Loog::VERBOSE)
     assert(!wts.id.nil?)
   end
 
   def test_retrieves_balance
-    skip if KEY.length < 50
     wts = Zold::WTS.new(KEY, log: Loog::VERBOSE)
+    job = wts.pull
+    wts.wait(job)
+    assert(!wts.balance.nil?)
+  end
+
+  def test_works_with_fake
+    wts = Zold::WTS::Fake.new
     job = wts.pull
     wts.wait(job)
     assert(!wts.balance.zero?)
