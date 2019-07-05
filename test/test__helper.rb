@@ -20,44 +20,13 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-require 'loog'
-require 'minitest/autorun'
-require_relative '../../lib/zold/wts'
+STDOUT.sync = true
 
-# WTS test.
-# Author:: Yegor Bugayenko (yegor256@gmail.com)
-# Copyright:: Copyright (c) 2018-2019 Yegor Bugayenko
-# License:: MIT
-class TestWTS < Minitest::Test
-  KEY = '8HNxjYuEFp0....LYOWxsEaC3rQ=='
-
-  def test_pulls
-    skip if KEY.length < 50
-    wts = Zold::WTS.new(KEY, log: Loog::VERBOSE)
-    job = wts.pull
-    wts.wait(job)
-    assert(!job.nil?)
-  end
-
-  def test_finds_transactions
-    skip if KEY.length < 50
-    wts = Zold::WTS.new(KEY, log: Loog::VERBOSE)
-    job = wts.pull
-    wts.wait(job)
-    assert_equal(1, wts.find(details: /^for hosting$/).count)
-  end
-
-  def test_retrieves_wallet_id
-    skip if KEY.length < 50
-    wts = Zold::WTS.new(KEY, log: Loog::VERBOSE)
-    assert(!wts.id.nil?)
-  end
-
-  def test_retrieves_balance
-    skip if KEY.length < 50
-    wts = Zold::WTS.new(KEY, log: Loog::VERBOSE)
-    job = wts.pull
-    wts.wait(job)
-    assert(!wts.balance.zero?)
-  end
+require 'simplecov'
+SimpleCov.start
+if ENV['CI'] == 'true'
+  require 'codecov'
+  SimpleCov.formatter = SimpleCov::Formatter::Codecov
 end
+
+require 'minitest/autorun'

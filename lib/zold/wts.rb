@@ -22,6 +22,7 @@
 
 require 'typhoeus'
 require 'cgi'
+require 'loog'
 require 'zold/age'
 require 'zold/amount'
 require 'zold/id'
@@ -40,7 +41,7 @@ module Zold
     # and confirm your account first. Keep this key secret, to avoid
     # information lost. However, even knowing the secret no payments can
     # be sent without they keygap.
-    def initialize(key, log: STDOUT)
+    def initialize(key, log: Loog::NULL)
       raise 'Key can\'t be nil' if key.nil?
       @key = key
       raise 'Log can\'t be nil' if log.nil?
@@ -63,7 +64,7 @@ module Zold
           )
         )
       )
-      debug("PULL job #{job} started in #{Zold::Age.new(start)}")
+      @log.debug("PULL job #{job} started in #{Zold::Age.new(start)}")
       job
     end
 
@@ -77,7 +78,7 @@ module Zold
         )
       )
       balance = Zold::Amount.new(zents: http.body.to_i)
-      debug("Wallet balance #{balance} retrieved in #{Zold::Age.new(start)}")
+      @log.debug("The balance #{balance} retrieved in #{Zold::Age.new(start)}")
       balance
     end
 
@@ -91,7 +92,7 @@ module Zold
         )
       )
       id = Zold::Id.new(http.body.to_s)
-      debug("Wallet ID #{id} retrieved in #{Zold::Age.new(start)}")
+      @log.debug("Wallet ID #{id} retrieved in #{Zold::Age.new(start)}")
       id
     end
 
@@ -114,7 +115,7 @@ module Zold
           )
         )
       )
-      debug("PAY job #{job} started in #{Zold::Age.new(start)}")
+      @log.debug("PAY job #{job} started in #{Zold::Age.new(start)}")
       job
     end
 
@@ -137,7 +138,7 @@ module Zold
         )
       )
       txns = http.body.split("\n").map { |t| Zold::Txn.parse(t) }
-      debug("#{txns.count} transactions found in #{Zold::Age.new(start)}")
+      @log.debug("#{txns.count} transactions found in #{Zold::Age.new(start)}")
       txns
     end
 
@@ -158,7 +159,7 @@ module Zold
         raise "Unpredictable response code #{http.code}" unless http.code == 200
         next if http.body == 'Running'
         raise http.body unless http.body == 'OK'
-        debug("Job #{job} completed, in #{Zold::Age.new(start)}")
+        @log.debug("Job #{job} completed, in #{Zold::Age.new(start)}")
         return http.body
       end
     end
@@ -182,18 +183,10 @@ module Zold
       error = http.headers['X-Zold-Error']
       raise error unless error.nil?
       unless http.code == 200 || http.code == 302
-        debug(http.body)
+        @log.debug(http.body)
         raise "Unexpected response code #{http.code}"
       end
       http
-    end
-
-    def debug(msg)
-      if @log.respond_to?(:debug)
-        @log.debug(msg)
-      elsif @log.respond_to?(:puts)
-        @log.puts(msg)
-      end
     end
   end
 end

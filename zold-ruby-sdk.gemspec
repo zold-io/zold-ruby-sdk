@@ -41,8 +41,9 @@ Gem::Specification.new do |s|
   s.test_files = s.files.grep(%r{^(test|features)/})
   s.rdoc_options = ['--charset=UTF-8']
   s.extra_rdoc_files = ['README.md', 'LICENSE.txt']
+  s.add_runtime_dependency 'loog', '~>0.2'
   s.add_runtime_dependency 'typhoeus', '1.3.1'
-  s.add_runtime_dependency 'zold', '0.21.4'
+  s.add_runtime_dependency 'zold', '~>0.21'
   s.add_development_dependency 'codecov', '0.1.14'
   s.add_development_dependency 'minitest', '5.11.3'
   s.add_development_dependency 'minitest-hooks', '1.5.0'
