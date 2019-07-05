@@ -27,7 +27,7 @@ There are other languages too: [Java SDK](https://github.com/amihaiemil/zold-jav
 
 First, you install it:
 
-```
+```bash
 gem install zold-ruby-sdk
 ```
 
@@ -67,7 +67,7 @@ txns = wts.find(id: '123', details: /pizza/)
 
 That's it.
 
-# How to contribute
+## How to contribute
 
 Read [these guidelines](https://www.yegor256.com/2014/04/15/github-guidelines.html).
 Make sure you build is green before you contribute
@@ -76,7 +76,7 @@ your pull request. You will need to have [Ruby](https://www.ruby-lang.org/en/) 2
 
 ```
 $ bundle update
-$ rake
+$ bundle exec rake
 ```
 
 If it's clean and you don't see any error messages, submit your pull request.
