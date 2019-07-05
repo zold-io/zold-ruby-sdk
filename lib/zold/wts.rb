@@ -145,6 +145,11 @@ class Zold::WTS
     job
   end
 
+  # Returns current USD rate of one ZLD.
+  def usd_rate
+    clean(Typhoeus::Request.get('https://wts.zold.io/usd_rate')).body.to_f
+  end
+
   # Find transactions by the criteria. All criterias are regular expressions
   # and their summary result is concatenated by OR. For example, this request
   # will return all transactions that have "pizza" in details OR which
@@ -184,7 +189,8 @@ class Zold::WTS
       raise "Job #{job} not found on the server" if http.code == 404
       raise "Unpredictable response code #{http.code}" unless http.code == 200
       if http.body == 'Running'
-        @log.debug("Job #{job} is still running, #{Zold::Age.new(start)} already...")
+        @log.debug("Job #{job} is still running, \
+#{Zold::Age.new(start)} already...")
         sleep 1
         next
       end

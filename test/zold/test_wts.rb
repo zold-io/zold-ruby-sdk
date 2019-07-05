@@ -57,6 +57,12 @@ class TestWTS < Minitest::Test
     assert(!wts.balance.nil?)
   end
 
+  def test_retrieves_usd_rate
+    wts = Zold::WTS.new(KEY, log: Loog::VERBOSE)
+    rate = wts.usd_rate
+    assert(!rate.nil?)
+  end
+
   def test_works_with_fake
     wts = Zold::WTS::Fake.new
     job = wts.pull
