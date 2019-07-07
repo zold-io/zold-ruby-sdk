@@ -210,6 +210,7 @@ class Zold::WTS
   end
 
   def job_of(http)
+    raise 'There are no headers in the response' if http.headers.nil?
     job = http.headers['X-Zold-Job']
     raise 'Job ID is not returned, for some reason' if job.nil?
     job
