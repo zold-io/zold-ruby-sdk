@@ -52,4 +52,5 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'rspec-rails', '3.8.1'
   s.add_development_dependency 'rubocop', '0.62.0'
   s.add_development_dependency 'rubocop-rspec', '1.31.0'
+  s.add_development_dependency 'webmock', '3.5.1'
 end

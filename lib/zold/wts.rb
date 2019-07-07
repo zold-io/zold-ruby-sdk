@@ -216,7 +216,7 @@ class Zold::WTS
   end
 
   def clean(http)
-    error = http.headers['X-Zold-Error']
+    error = (http.headers || {})['X-Zold-Error']
     raise error unless error.nil?
     unless http.code == 200 || http.code == 302
       @log.debug(http.body)
