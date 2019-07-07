@@ -29,7 +29,7 @@ Gem::Specification.new do |s|
   s.rubygems_version = '2.2'
   s.required_ruby_version = '>=2.5'
   s.name = 'zold-ruby-sdk'
-  s.version = '0.0.0'
+  s.version = '0.2.1'
   s.license = 'MIT'
   s.summary = 'Zold score'
   s.description = 'Ruby SDK for Zold online wallets management system (WTS)'
