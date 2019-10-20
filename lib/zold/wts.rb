@@ -220,7 +220,7 @@ class Zold::WTS
     error = (http.headers || {})['X-Zold-Error']
     raise error unless error.nil?
     unless http.code == 200 || http.code == 302
-      @log.debug(http.body)
+      @log.debug("HTTP response body: #{http.body}")
       raise "Unexpected response code #{http.code}"
     end
     http
