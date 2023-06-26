@@ -4,6 +4,7 @@
 [![DevOps By Rultor.com](http://www.rultor.com/b/yegor256/zold)](http://www.rultor.com/p/yegor256/zold)
 [![We recommend RubyMine](http://www.elegantobjects.org/rubymine.svg)](https://www.jetbrains.com/ruby/)
 
+[![rake](https://github.com/zold-io/zold-ruby-sdk/actions/workflows/rake.yml/badge.svg)](https://github.com/zold-io/zold-ruby-sdk/actions/workflows/rake.yml)
 [![PDD status](http://www.0pdd.com/svg?name=zold-io/zold-ruby-sdk)](http://www.0pdd.com/p?name=zold-io/zold-ruby-sdk)
 [![Gem Version](https://badge.fury.io/rb/zold-ruby-sdk.svg)](http://badge.fury.io/rb/zold-ruby-sdk)
 [![Test Coverage](https://img.shields.io/codecov/c/github/zold-io/zold-ruby-sdk.svg)](https://codecov.io/github/zold-io/zold-ruby-sdk?branch=master)
