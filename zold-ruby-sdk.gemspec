@@ -44,13 +44,4 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency 'loog', '~>0.2'
   s.add_runtime_dependency 'typhoeus', '1.3.1'
   s.add_runtime_dependency 'zold', '~>0.21'
-  s.add_development_dependency 'codecov', '0.1.14'
-  s.add_development_dependency 'minitest', '5.11.3'
-  s.add_development_dependency 'minitest-hooks', '1.5.0'
-  s.add_development_dependency 'rake-compiler', '1.0.4'
-  s.add_development_dependency 'rdoc', '4.3.0'
-  s.add_development_dependency 'rspec-rails', '3.8.1'
-  s.add_development_dependency 'rubocop', '0.62.0'
-  s.add_development_dependency 'rubocop-rspec', '1.31.0'
-  s.add_development_dependency 'webmock', '3.5.1'
 end
