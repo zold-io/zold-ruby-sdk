@@ -43,5 +43,5 @@ Gem::Specification.new do |s|
   s.extra_rdoc_files = ['README.md', 'LICENSE.txt']
   s.add_runtime_dependency 'loog', '~>0.2'
   s.add_runtime_dependency 'typhoeus', '1.4.0'
-  s.add_runtime_dependency 'zold', '~>0.21'
+  s.add_runtime_dependency 'zold', '~>0.31'
 end
