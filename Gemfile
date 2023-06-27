@@ -27,7 +27,7 @@ gem 'minitest', '5.18.1', require: false
 gem 'minitest-hooks', '1.5.0', require: false
 gem 'rake-compiler', '1.2.3', require: false
 gem 'rdoc', '4.3.0', require: false
-gem 'rspec-rails', '3.8.1', require: false
+gem 'rspec-rails', '6.0.3', require: false
 gem 'rubocop', '0.62.0', require: false
 gem 'rubocop-rspec', '1.31.0', require: false
 gem 'simplecov', '0.22.0', require: false
