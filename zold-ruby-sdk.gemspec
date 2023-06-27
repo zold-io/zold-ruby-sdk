@@ -22,11 +22,7 @@
 
 require 'English'
 Gem::Specification.new do |s|
-  s.specification_version = 2 if s.respond_to? :specification_version=
-  if s.respond_to? :required_rubygems_version=
-    s.required_rubygems_version = Gem::Requirement.new('>= 0')
-  end
-  s.rubygems_version = '2.2'
+  s.required_rubygems_version = Gem::Requirement.new('>= 0') if s.respond_to? :required_rubygems_version=
   s.required_ruby_version = '>=2.5'
   s.name = 'zold-ruby-sdk'
   s.version = '0.0.0'
@@ -38,10 +34,10 @@ Gem::Specification.new do |s|
   s.homepage = 'http://github.com/zold-io/zold-ruby-sdk'
   s.files = `git ls-files`.split($RS)
   s.executables = s.files.grep(%r{^bin/}) { |f| File.basename(f) }
-  s.test_files = s.files.grep(%r{^(test|features)/})
   s.rdoc_options = ['--charset=UTF-8']
   s.extra_rdoc_files = ['README.md', 'LICENSE.txt']
   s.add_runtime_dependency 'loog', '~>0.2'
   s.add_runtime_dependency 'typhoeus', '1.4.0'
   s.add_runtime_dependency 'zold', '~>0.31'
+  s.metadata['rubygems_mfa_required'] = 'true'
 end

@@ -164,11 +164,12 @@ class Zold::WTS
   # The method returns an array of Zold::Txn objects.
   def find(query)
     start = Time.now
+    tail = query.map do |k, v|
+      "#{CGI.escape(k.to_s)}=#{CGI.escape(v.to_s)}"
+    end.join('&')
     http = clean(
       Typhoeus::Request.get(
-        'https://wts.zold.io/find?' + query.map do |k, v|
-          "#{CGI.escape(k.to_s)}=#{CGI.escape(v.to_s)}"
-        end.join('&'),
+        "https://wts.zold.io/find?#{tail}",
         headers: headers
       )
     )
@@ -183,11 +184,9 @@ class Zold::WTS
   def wait(job, time: 5 * 60)
     start = Time.now
     loop do
-      if Time.now - start > time
-        raise "Can't wait any longer for the job #{job} to complete"
-      end
+      raise "Can't wait any longer for the job #{job} to complete" if Time.now - start > time
       http = Typhoeus::Request.get(
-        'https://wts.zold.io/job?id=' + job,
+        "https://wts.zold.io/job?id=#{job}",
         headers: headers
       )
       raise "Job #{job} not found on the server" if http.code == 404

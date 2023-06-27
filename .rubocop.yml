@@ -1,6 +1,8 @@
 AllCops:
   DisplayCopNames: true
   TargetRubyVersion: 2.5
+  SuggestExtensions: false
+  NewCops: enable
 
 Layout/EmptyLineAfterGuardClause:
   Enabled: false
@@ -18,7 +20,7 @@ Metrics/ClassLength:
   Max: 180
 Metrics/ParameterLists:
   Max: 7
-Layout/AlignParameters:
+Layout/ParameterAlignment:
   Enabled: false
 Metrics/CyclomaticComplexity:
   Max: 20
