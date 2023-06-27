@@ -25,7 +25,7 @@ Gem::Specification.new do |s|
   s.required_rubygems_version = Gem::Requirement.new('>= 0') if s.respond_to? :required_rubygems_version=
   s.required_ruby_version = '>=2.5'
   s.name = 'zold-ruby-sdk'
-  s.version = '0.0.0'
+  s.version = '0.3.0'
   s.license = 'MIT'
   s.summary = 'Zold score'
   s.description = 'Ruby SDK for Zold online wallets management system (WTS)'
