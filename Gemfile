@@ -31,4 +31,4 @@ gem 'rspec-rails', '6.0.3', require: false
 gem 'rubocop', '1.54.1', require: false
 gem 'rubocop-rspec', '2.22.0', require: false
 gem 'simplecov', '0.22.0', require: false
-gem 'webmock', '3.18.1', require: false
+gem 'webmock', '3.23.1', require: false
