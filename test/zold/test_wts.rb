@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# Copyright (c) 2018-2023 Yegor Bugayenko
+# Copyright (c) 2018-2025 Yegor Bugayenko
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the 'Software'), to deal
@@ -27,7 +27,7 @@ require_relative '../../lib/zold/wts'
 
 # WTS test.
 # Author:: Yegor Bugayenko (yegor256@gmail.com)
-# Copyright:: Copyright (c) 2018-2023 Yegor Bugayenko
+# Copyright:: Copyright (c) 2018-2025 Yegor Bugayenko
 # License:: MIT
 class TestWTS < Minitest::Test
   KEY = '0000000000000000-b416493aefae4ca487c4739050aaec15'
