@@ -3,7 +3,6 @@ AllCops:
   TargetRubyVersion: 2.5
   SuggestExtensions: false
   NewCops: enable
-
 Layout/EmptyLineAfterGuardClause:
   Enabled: false
 Layout/EndOfLine:
@@ -26,3 +25,7 @@ Metrics/CyclomaticComplexity:
   Max: 20
 Metrics/PerceivedComplexity:
   Max: 20
+required:
+  - rubocop-rake
+  - rubocop-minitest
+  - rubocop-performance
