@@ -17,4 +17,4 @@ gem 'rubocop-performance', '>0', require: false
 gem 'rubocop-rake', '>0', require: false
 gem 'rubocop-rspec', '2.22.0', require: false
 gem 'simplecov', '0.22.0', require: false
-gem 'webmock', '3.18.1', require: false
+gem 'webmock', '3.25.1', require: false
