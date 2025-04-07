@@ -1,14 +1,14 @@
 <img src="https://www.zold.io/logo.svg" width="92px" height="92px"/>
 
-[![EO principles respected here](http://www.elegantobjects.org/badge.svg)](http://www.elegantobjects.org)
-[![DevOps By Rultor.com](http://www.rultor.com/b/yegor256/zold)](http://www.rultor.com/p/yegor256/zold)
-[![We recommend RubyMine](http://www.elegantobjects.org/rubymine.svg)](https://www.jetbrains.com/ruby/)
+[![EO principles respected here](https://www.elegantobjects.org/badge.svg)](https://www.elegantobjects.org)
+[![DevOps By Rultor.com](https://www.rultor.com/b/yegor256/zold)](https://www.rultor.com/p/yegor256/zold)
+[![We recommend RubyMine](https://www.elegantobjects.org/rubymine.svg)](https://www.jetbrains.com/ruby/)
 
 [![rake](https://github.com/zold-io/zold-ruby-sdk/actions/workflows/rake.yml/badge.svg)](https://github.com/zold-io/zold-ruby-sdk/actions/workflows/rake.yml)
-[![PDD status](http://www.0pdd.com/svg?name=zold-io/zold-ruby-sdk)](http://www.0pdd.com/p?name=zold-io/zold-ruby-sdk)
-[![Gem Version](https://badge.fury.io/rb/zold-ruby-sdk.svg)](http://badge.fury.io/rb/zold-ruby-sdk)
+[![PDD status](https://www.0pdd.com/svg?name=zold-io/zold-ruby-sdk)](https://www.0pdd.com/p?name=zold-io/zold-ruby-sdk)
+[![Gem Version](https://badge.fury.io/rb/zold-ruby-sdk.svg)](https://badge.fury.io/rb/zold-ruby-sdk)
 [![Test Coverage](https://img.shields.io/codecov/c/github/zold-io/zold-ruby-sdk.svg)](https://codecov.io/github/zold-io/zold-ruby-sdk?branch=master)
-[![Yard Docs](http://img.shields.io/badge/yard-docs-blue.svg)](http://rubydoc.info/github/zold-io/zold-ruby-sdk/master/frames)
+[![Yard Docs](https://img.shields.io/badge/yard-docs-blue.svg)](https://rubydoc.info/github/zold-io/zold-ruby-sdk/master/frames)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](https://github.com/yegor256/takes/blob/master/LICENSE.txt)
 [![Hits-of-Code](https://hitsofcode.com/github/zold-io/zold-score)](https://hitsofcode.com/view/github/zold-io/zold-ruby-sdk)
 
