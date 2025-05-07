@@ -1,11 +1,11 @@
-*.gem
-.DS_Store
 .bundle/
+.DS_Store
 .idea/
 .yardoc/
-Gemfile.lock
+*.gem
 coverage/
 doc/
+Gemfile.lock
 lib/score_suffix
 node_modules/
 rdoc/
