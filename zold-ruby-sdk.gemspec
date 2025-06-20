@@ -14,7 +14,7 @@ Gem::Specification.new do |s|
   s.description = 'Ruby SDK for Zold online wallets management system (WTS)'
   s.authors = ['Yegor Bugayenko']
   s.email = 'yegor256@gmail.com'
-  s.homepage = 'http://github.com/zold-io/zold-ruby-sdk'
+  s.homepage = 'https://github.com/zold-io/zold-ruby-sdk'
   s.files = `git ls-files`.split($RS)
   s.executables = s.files.grep(%r{^bin/}) { |f| File.basename(f) }
   s.rdoc_options = ['--charset=UTF-8']
