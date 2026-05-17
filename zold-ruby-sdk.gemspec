@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.name = 'zold-ruby-sdk'
   s.version = '0.0.0'
   s.license = 'MIT'
-  s.summary = 'Zold score'
+  s.summary = 'Ruby SDK for Zold WTS'
   s.description = 'Ruby SDK for Zold online wallets management system (WTS)'
   s.authors = ['Yegor Bugayenko']
   s.email = 'yegor256@gmail.com'
