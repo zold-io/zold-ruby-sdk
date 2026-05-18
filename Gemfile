@@ -6,7 +6,7 @@
 source 'https://rubygems.org'
 gemspec
 
-gem 'minitest', '~>5.18', require: false
+gem 'minitest', '~>6.0', require: false
 gem 'minitest-hooks', '~>1.5', require: false
 gem 'rake-compiler', '~>1.2', require: false
 gem 'rdoc', '~>6.5', require: false
