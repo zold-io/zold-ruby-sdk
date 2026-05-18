@@ -10,7 +10,7 @@ gem 'minitest', '~>5.18', require: false
 gem 'minitest-hooks', '~>1.5', require: false
 gem 'rake-compiler', '~>1.2', require: false
 gem 'rdoc', '~>6.5', require: false
-gem 'rspec-rails', '~>6.0', require: false
+gem 'rspec-rails', '~>8.0', require: false
 gem 'rubocop', '~>1.54', require: false
 gem 'rubocop-minitest', '>0', require: false
 gem 'rubocop-performance', '>0', require: false
