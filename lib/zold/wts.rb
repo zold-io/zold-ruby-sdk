@@ -35,6 +35,10 @@ class Zold::WTS
       'job-id'
     end
 
+    def sell(_keygap, _btc, _amount)
+      'job-id'
+    end
+
     def usd_rate
       5_000
     end
@@ -129,6 +133,28 @@ class Zold::WTS
       )
     )
     @log.debug("PAY job #{job} started in #{Zold::Age.new(start)}")
+    job
+  end
+
+  # Initiate SELL request to convert ZLD to BTC. The <tt>keygap</tt> is the
+  # string you get when you confirm the account. The <tt>btc</tt> is the
+  # Bitcoin address to receive the funds. The <tt>amount</tt> is the amount
+  # in ZLD, e.g. "0.5".
+  #
+  # The method returns the job ID, which you should wait for completion
+  # using the method <tt>wait()</tt>.
+  def sell(keygap, btc, amount)
+    start = Time.now
+    job = job_of(
+      clean(
+        Typhoeus::Request.post(
+          'https://wts.zold.io/do-zld-to-btc',
+          headers: headers,
+          body: { keygap: keygap, btc: btc, amount: amount }
+        )
+      )
+    )
+    @log.debug("SELL job #{job} started in #{Zold::Age.new(start)}")
     job
   end
 
