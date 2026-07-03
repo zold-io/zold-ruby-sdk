@@ -21,7 +21,7 @@ class TestWTS < Minitest::Test
     job = wts.pull
     wts.wait(job)
 
-    refute(job.nil?)
+    refute_nil(job)
   end
 
   def test_finds_transactions
@@ -37,13 +37,13 @@ class TestWTS < Minitest::Test
     WebMock.allow_net_connect!
     wts = Zold::WTS.new(KEY, log: Loog::VERBOSE)
 
-    refute(wts.id.nil?)
+    refute_nil(wts.id)
   end
 
   def test_retrieves_fake_usd_rate
     wts = Zold::WTS::Fake.new
 
-    refute(wts.usd_rate.nil?)
+    refute_nil(wts.usd_rate)
   end
 
   def test_retrieves_balance
@@ -52,7 +52,7 @@ class TestWTS < Minitest::Test
     job = wts.pull
     wts.wait(job)
 
-    refute(wts.balance.nil?)
+    refute_nil(wts.balance)
   end
 
   def test_retrieves_usd_rate
@@ -60,7 +60,7 @@ class TestWTS < Minitest::Test
     wts = Zold::WTS.new(KEY, log: Loog::VERBOSE)
     rate = wts.usd_rate
 
-    refute(rate.nil?)
+    refute_nil(rate)
   end
 
   def test_works_with_fake
@@ -69,7 +69,7 @@ class TestWTS < Minitest::Test
     job = wts.pull
     wts.wait(job)
 
-    refute(wts.balance.zero?)
+    refute_predicate(wts.balance, :zero?)
   end
 
   def test_works_with_webmock
