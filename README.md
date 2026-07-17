@@ -1,6 +1,6 @@
 # Zold Ruby SDK
 
-<img src="https://www.zold.io/logo.svg" width="92px" height="92px" alt="Zold logo"/>
+![Zold logo](https://www.zold.io/logo.svg)
 
 [![EO principles respected here](https://www.elegantobjects.org/badge.svg)](https://www.elegantobjects.org)
 [![DevOps By Rultor.com](https://www.rultor.com/b/yegor256/zold)](https://www.rultor.com/p/yegor256/zold)
