@@ -137,7 +137,7 @@ class Zold::WTS
     clean(Typhoeus::Request.get('https://wts.zold.io/usd_rate')).body.to_f
   end
 
-  # Find transactions by the criteria. All criterias are regular expressions
+  # Find transactions by the criteria. All criteria are regular expressions
   # and their summary result is concatenated by OR. For example, this request
   # will return all transactions that have "pizza" in details OR which
   # are coming from the root wallet:
@@ -205,7 +205,7 @@ class Zold::WTS
   def clean(http)
     error = (http.headers || {})['X-Zold-Error']
     raise error unless error.nil?
-    unless http.code == 200 || http.code == 302
+    unless [200, 302].include?(http.code)
       @log.debug("HTTP response body: #{http.body}")
       raise "Unexpected response code #{http.code}"
     end
