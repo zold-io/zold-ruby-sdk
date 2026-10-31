@@ -47,6 +47,49 @@ class Zold::WTS
       raise 'Time must be positive' if time.negative?
       'OK'
     end
+
+    def self.mobile_send(_phone)
+      'SMS sent'
+    end
+
+    def self.mobile_token(_phone, _code)
+      "#{Zold::Id::ROOT}-fake-token"
+    end
+  end
+
+  # Send the SMS confirmation code to the given mobile phone. The
+  # <tt>phone</tt> is the number formatted according to E.164,
+  # digits only, no leading zero or plus sign, e.g. "15551234567".
+  #
+  # The method returns the short text the server returns, describing
+  # SMS delivery or the sandbox state. Call <tt>mobile_token()</tt>
+  # next, passing the same phone and the four-digit code received.
+  def self.mobile_send(phone)
+    http = Typhoeus::Request.get(
+      "https://wts.zold.io/mobile/send?phone=#{CGI.escape(phone.to_s)}&noredirect=true"
+    )
+    error = (http.headers || {})['X-Zold-Error']
+    raise error unless error.nil?
+    raise "Unexpected response code #{http.code}" unless http.code == 200
+    http.body.to_s
+  end
+
+  # Verify the SMS code and obtain the WTS API token. The
+  # <tt>phone</tt> is the same E.164 number used in
+  # <tt>mobile_send()</tt>. The <tt>code</tt> is the four-digit
+  # confirmation code from the SMS.
+  #
+  # The method returns the token in the form
+  # <tt>"&lt;login&gt;-&lt;token&gt;"</tt>, ready to be passed to
+  # <tt>Zold::WTS.new</tt>.
+  def self.mobile_token(phone, code)
+    http = Typhoeus::Request.get(
+      "https://wts.zold.io/mobile/token?phone=#{CGI.escape(phone.to_s)}&code=#{CGI.escape(code.to_s)}&noredirect=true"
+    )
+    error = (http.headers || {})['X-Zold-Error']
+    raise error unless error.nil?
+    raise "Unexpected response code #{http.code}" unless http.code == 200
+    http.body.to_s
   end
 
   # Makes a new object of the class. The <tt>key</tt> you are supposed
