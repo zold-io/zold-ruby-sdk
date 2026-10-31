@@ -14,5 +14,5 @@ gem 'rubocop', '~>1.54', require: false
 gem 'rubocop-minitest', '>0', require: false
 gem 'rubocop-performance', '>0', require: false
 gem 'rubocop-rake', '>0', require: false
-gem 'simplecov', '~>0.22', require: false
+gem 'simplecov', '~>1.0', require: false
 gem 'webmock', '~>3.18', require: false
