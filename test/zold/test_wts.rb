@@ -79,4 +79,19 @@ class TestWTS < Minitest::Test
 
     assert_in_delta(1.234, wts.usd_rate)
   end
+
+  def test_sells
+    WebMock.disable_net_connect!
+    stub_request(:post, 'https://wts.zold.io/do-zld-to-btc')
+      .with(body: hash_including(keygap: 'kg', btc: 'bc1qaddr', amount: '0.5'))
+      .to_return(headers: { 'X-Zold-Job' => 'job-sell' })
+    wts = Zold::WTS.new(KEY, log: Loog::VERBOSE)
+    job = wts.sell('kg', 'bc1qaddr', '0.5')
+
+    assert_equal('job-sell', job)
+  end
+
+  def test_fake_sells
+    assert_equal('job-id', Zold::WTS::Fake.new.sell('kg', 'bc1qaddr', '0.5'))
+  end
 end
