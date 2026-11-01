@@ -42,9 +42,9 @@ require 'rubocop/rake_task'
 desc 'Run RuboCop on all directories'
 RuboCop::RakeTask.new(:rubocop) do |task|
   task.fail_on_error = true
-  task.requires << 'rubocop-rspec'
 end
 
+desc 'Check that copyright notices carry the current year'
 task :copyright do
   sh "grep -q -r '2018-#{Date.today.strftime('%Y')}' \
     --include '*.rb' \
