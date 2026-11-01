@@ -15,8 +15,15 @@ require_relative '../../lib/zold/wts'
 class TestWTS < Minitest::Test
   KEY = '0000000000000000-b416493aefae4ca487c4739050aaec15'
 
+  def setup
+    WebMock.disable_net_connect!
+  end
+
   def test_pulls
-    WebMock.allow_net_connect!
+    stub_request(:get, 'https://wts.zold.io/pull')
+      .to_return(headers: { 'X-Zold-Job' => 'job-pull' })
+    stub_request(:get, %r{https://wts\.zold\.io/job\?id=.*})
+      .to_return(body: 'OK')
     wts = Zold::WTS.new(KEY, log: Loog::VERBOSE)
     job = wts.pull
     wts.wait(job)
@@ -25,7 +32,12 @@ class TestWTS < Minitest::Test
   end
 
   def test_finds_transactions
-    WebMock.allow_net_connect!
+    stub_request(:get, 'https://wts.zold.io/pull')
+      .to_return(headers: { 'X-Zold-Job' => 'job-find' })
+    stub_request(:get, %r{https://wts\.zold\.io/job\?id=.*})
+      .to_return(body: 'OK')
+    stub_request(:get, %r{https://wts\.zold\.io/find\?.*})
+      .to_return(body: '')
     wts = Zold::WTS.new(KEY, log: Loog::VERBOSE)
     job = wts.pull
     wts.wait(job)
@@ -34,7 +46,8 @@ class TestWTS < Minitest::Test
   end
 
   def test_retrieves_wallet_id
-    WebMock.allow_net_connect!
+    stub_request(:get, 'https://wts.zold.io/id')
+      .to_return(body: '0000000000000000')
     wts = Zold::WTS.new(KEY, log: Loog::VERBOSE)
 
     refute_nil(wts.id)
@@ -47,7 +60,12 @@ class TestWTS < Minitest::Test
   end
 
   def test_retrieves_balance
-    WebMock.allow_net_connect!
+    stub_request(:get, 'https://wts.zold.io/pull')
+      .to_return(headers: { 'X-Zold-Job' => 'job-balance' })
+    stub_request(:get, %r{https://wts\.zold\.io/job\?id=.*})
+      .to_return(body: 'OK')
+    stub_request(:get, 'https://wts.zold.io/balance')
+      .to_return(body: '100000000')
     wts = Zold::WTS.new(KEY, log: Loog::VERBOSE)
     job = wts.pull
     wts.wait(job)
@@ -56,7 +74,8 @@ class TestWTS < Minitest::Test
   end
 
   def test_retrieves_usd_rate
-    WebMock.allow_net_connect!
+    stub_request(:get, 'https://wts.zold.io/usd_rate')
+      .to_return(body: '5000.0')
     wts = Zold::WTS.new(KEY, log: Loog::VERBOSE)
     rate = wts.usd_rate
 
@@ -64,7 +83,6 @@ class TestWTS < Minitest::Test
   end
 
   def test_works_with_fake
-    WebMock.allow_net_connect!
     wts = Zold::WTS::Fake.new
     job = wts.pull
     wts.wait(job)
@@ -73,7 +91,6 @@ class TestWTS < Minitest::Test
   end
 
   def test_works_with_webmock
-    WebMock.disable_net_connect!
     stub_request(:get, 'https://wts.zold.io/usd_rate').to_return(body: '1.234')
     wts = Zold::WTS.new('fake', log: Loog::VERBOSE)
 
