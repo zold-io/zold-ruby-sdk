@@ -111,4 +111,31 @@ class TestWTS < Minitest::Test
   def test_fake_sells
     assert_equal('job-id', Zold::WTS::Fake.new.sell('kg', 'bc1qaddr', '0.5'))
   end
+
+  def test_mobile_send
+    WebMock.disable_net_connect!
+    stub_request(:get, 'https://wts.zold.io/mobile/send')
+      .with(query: hash_including(phone: '15551234567', noredirect: 'true'))
+      .to_return(body: 'SMS #42 has been delivered to 15551234567')
+    body = Zold::WTS.mobile_send('15551234567')
+
+    assert_includes(body, '15551234567')
+  end
+
+  def test_mobile_token
+    WebMock.disable_net_connect!
+    stub_request(:get, 'https://wts.zold.io/mobile/token')
+      .with(query: hash_including(phone: '15551234567', code: '1234'))
+      .to_return(body: 'alice-token123')
+
+    assert_equal('alice-token123', Zold::WTS.mobile_token('15551234567', '1234'))
+  end
+
+  def test_fake_mobile_send
+    assert_equal('SMS sent', Zold::WTS::Fake.mobile_send('15551234567'))
+  end
+
+  def test_fake_mobile_token
+    assert_includes(Zold::WTS::Fake.mobile_token('15551234567', '1234'), '-')
+  end
 end
