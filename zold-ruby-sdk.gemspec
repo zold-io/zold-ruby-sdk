@@ -19,6 +19,7 @@ Gem::Specification.new do |s|
   s.executables = s.files.grep(%r{^bin/}) { |f| File.basename(f) }
   s.rdoc_options = ['--charset=UTF-8']
   s.extra_rdoc_files = ['README.md', 'LICENSE.txt']
+  s.add_dependency 'csv', '~>3.3'
   s.add_dependency 'loog', '~>0.2'
   s.add_dependency 'typhoeus', '1.4.0'
   s.add_dependency 'zold', '~>0.31'
