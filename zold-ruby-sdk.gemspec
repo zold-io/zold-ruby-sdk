@@ -20,8 +20,8 @@ Gem::Specification.new do |s|
   s.rdoc_options = ['--charset=UTF-8']
   s.extra_rdoc_files = ['README.md', 'LICENSE.txt']
   s.add_dependency 'csv', '~>3.3'
-  s.add_dependency 'loog', '~>0.2'
-  s.add_dependency 'typhoeus', '1.4.0'
-  s.add_dependency 'zold', '~>0.31'
+  s.add_dependency 'loog', '~>0.8'
+  s.add_dependency 'typhoeus', '~>1.7'
+  s.add_dependency 'zold', '~>0.32'
   s.metadata['rubygems_mfa_required'] = 'true'
 end
